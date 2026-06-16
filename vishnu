@@ -1,0 +1,144 @@
+Mistake #2: GitHub Authentication Mismatch
+
+Error:
+
+Permission to Phaneendra-K-SRE/parashuram.git denied to phani0707
+Why
+
+GitHub authenticated as:
+
+phani0707
+
+while repository ownership was:
+
+Phaneendra-K-SRE
+
+GitHub permissions are tied to the authenticated account, not your local Git username.
+
+Important Lesson
+
+These are different things:
+
+git config user.name
+
+and
+
+GitHub login credentials.
+
+Many beginners confuse them.
+
+Mistake #3: Branch Name Confusion
+
+You attempted:
+
+git push origin main
+
+and received:
+
+fatal: main cannot be resolved to branch
+Why
+
+Your branch name was:
+
+MAIN
+
+instead of:
+
+main
+
+Git branch names are case-sensitive.
+
+Lesson Learned
+MAIN ≠ main
+Fix
+
+You switched/renamed appropriately and continued.
+
+Mistake #4: Remote Repository Already Had Commits
+
+When pushing:
+
+git push origin main
+
+Git responded:
+
+Updates were rejected because the remote contains work that you do not have locally.
+Why
+
+The GitHub repository already contained commits.
+
+Common causes:
+
+README created on GitHub
+local repository initialized separately
+
+Git prevents accidental overwrites.
+
+Correct Solution
+
+You executed:
+
+git pull origin main --rebase
+
+Output:
+
+Successfully rebased and updated refs/heads/main.
+
+Then:
+
+git push origin main
+
+Success:
+
+main -> main
+Lesson Learned
+
+When remote is ahead:
+
+git pull --rebase
+git push
+
+is usually the safest workflow.
+
+Small Configuration Issue Found
+
+Your Git email:
+
+phani.kavala@gamil.com
+
+Likely typo.
+
+Probably should be:
+
+phani.kavala@gmail.com
+Fix
+git config --global user.email "phani.kavala@gmail.com"
+
+This does not affect Git authentication but affects commit attribution.
+
+Skills Learned Today
+
+Linux
+
+✓ Absolute paths
+✓ Relative paths
+✓ Linux filesystem hierarchy
+✓ /var, /tmp, /home
+✓ Directory permissions
+✓ Sticky bit
+✓ Symbolic links
+✓ ls -ltr output interpretation
+✓ Temporary files
+✓ Linux memory usage
+✓ Buffers and cache
+
+Git
+
+✓ Remotes
+✓ GitHub permissions
+✓ Authentication issues
+✓ Branch management
+✓ Case-sensitive branch names
+✓ Rebase workflow
+✓ Pull before push concept
+✓ Remote vs local repository history
