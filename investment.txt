@@ -1,0 +1,5 @@
+lnd cost
+kitchen cost
+raw food materials cost
+delivery cost
+
